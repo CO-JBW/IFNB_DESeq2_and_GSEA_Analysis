@@ -1,0 +1,168 @@
+##################################################################################################################################
+#Code Ocean-specific Responses to Questions:
+##################################################################################################################################
+Walk me through how to create a Capsule that preprocesses scRNA-seq data. Be specific about how to select a starter environment and format the Capsule to be included in a Pipeline. Additionally, include how I might use a post-run automation Capsule with this and how I could create a secret for my account and attach it to this Capsule.
+
+
+##################################################################################################################################
+#Code Ocean-specific Responses to Questions:
+##################################################################################################################################
+Write and format an API call for me which first lists all available Capsules on the platform, then runs a Capsule. Do not execute this, I just want to see the code.
+
+
+##################################################################################################################################
+#Exploration of Data Assets on the server:
+##################################################################################################################################
+Give me a list of all Data Assets on the server that are relevant for RNA-seq. Be sure to include links to them and some information you can glean.
+
+
+##################################################################################################################################
+#Tagging and Metadata:
+##################################################################################################################################
+Find all assets on the server which have the tags "scRNA-seq" and "RNA-seq" or the metadata "Hit Generation"
+
+
+
+
+##################################################################################################################################
+#Create Capsule from script:
+#Copy the following GitHub repo: https://github.com/CO-JBW/IFNB_DESeq2_and_GSEA_Analysis
+#Move deseq2_gsea.R and hallmark_gene_sets.rds to the /code/ folder
+##################################################################################################################################
+I have a script in the /code folder of this capsule. Please:
+
+1. Analyze the script to identify:
+
+- The analysis workflow it performs
+- Required programming language and all package dependencies
+- Key analysis libraries and tools
+
+2. Search for existing capsules with similar or identical analysis:
+
+- Search using relevant tags (DESeq2, GSEA, pseudobulk, Seurat, IFNB)
+- Try multiple search queries to find the best match
+- Prioritize capsules with matching package combinations (e.g., Seurat, DESeq2, GSEA)
+
+3. Find the best matching capsule and retrieve its exact Dockerfile:
+
+- Get the capsule ID of the best match
+- Use the editor tool to read /environment/Dockerfile from that capsule
+- This Dockerfile contains the exact base image and package installation commands
+
+4. Copy the Dockerfile exactly:
+
+- Do NOT use capsule_environment tool - copy the raw Dockerfile file directly
+- Use the editor tool to create /environment/Dockerfile in this capsule
+- Copy the entire Dockerfile content verbatim (including hash, base image, all RUN commands, version pins)
+- Check to ensure the Dockerfile is an exact match for the Capsule you are copying from, If it is not, restart this step until it is
+- Your exit condition for step 4 is that you MUST have an identical dockerfile to the Capsule you have identified
+
+5. Match compute resources:
+
+- Get the compute configuration from the source capsule
+- Apply the same flex tier to this capsule using capsule_environment action="set_resources"
+
+6. Set up the capsule:
+
+- Create an appropriate /code/run script to execute the analysis
+- Update capsule metadata with descriptive name, description, and relevant tags based on the analysis
+
+7. Attach Data Assets:
+
+- Attach a Data Asset for this Capsule to process
+- Search using relevant tags (DESeq2, GSEA, pseudobulk, Seurat, IFNB)
+- Analyze the R script to determine the input file name and ensure the Data Asset includes this file
+
+
+##################################################################################################################################
+#Create a README.md file:
+##################################################################################################################################
+Create a README.md file for this Capsule. Make sure that it covers everything the R script does and the required inputs. Include a quickstart guide and what the environment should include. Finally, use an image from the attached Data Asset that shows the cell types via UMAP.
+
+
+##################################################################################################################################
+#Adding an App Panel:
+##################################################################################################################################
+Generate an App Panel with a dropdown for selecting the cell type analyzed (it is currently the most abundant) and a text box for the padj significance threshold for differential expression. Code Ocean passes App panel parameters as ordered positional tokens ($1, $2…), not named flags — read them accordingly with sensible defaults. Adjust the code to accommodate this newly added app panel. Run the capsule with non-default values and confirm the correct values appear in the output log. If they do not appear in the output log, troubleshoot and rerun until they do.
+
+
+##################################################################################################################################
+#Creating a Shiny App:
+##################################################################################################################################
+Create a Shiny app to enable interactive reanalysis and visualization of computational pipeline outputs without modifying the core analysis code.
+
+STRUCTURE
+- Place ui.R and server.R in /code (auto-detected by Code Ocean)
+- Keep analysis logic in standalone script callable by both run file and Shiny
+- UI mirrors App Panel parameters exactly (dropdown→selectInput, text→numericInput)
+- Analysis script accepts command-line arguments for programmatic invocation
+
+EXECUTION
+- Action button triggers on-demand runs via system2() calling the analysis script
+- Reactive values track completion status, output messages, execution state
+- Capture stdout/stderr for user feedback
+- Validate inputs before invoking backend; use tryCatch for error handling
+
+VISUALIZATION
+- Use renderImage() with file existence checks for /results outputs
+- Generate temporary placeholders with clear instructions when files missing
+- Set deleteFile=TRUE for placeholders, FALSE for persistent results
+- One tab per major output type in main panel
+
+USER FEEDBACK
+- Sidebar: inputs, run button, real-time status, help text
+- Show parameter confirmation and full logs in summary tab
+- Provide clear error messages for validation failures
+
+ENVIRONMENT
+- Work within existing packages, do not install any new ones. Shiny and shiny-server should already be installed
+- Never remove existing packages or edit core analysis code
+- App complements App Panel (interactive exploration vs. batch reproducibility)
+
+FILESYSTEM
+- Read from /data (mounted assets)
+- Write to /results (all outputs)
+- Use normalizePath() for serving existing files
+
+USE WHEN
+- Analysis runs complete in minutes (not hours)
+- Outputs are static files (PNG, CSV)
+- Users benefit from rapid parameter tuning and immediate feedback
+- Analysis script is modular with CLI argument support
+
+KEY PRINCIPLE
+Shiny invokes the same analysis code—never reimplements it. Both workflows produce identical outputs from identical parameters.
+
+
+##################################################################################################################################
+#Commit to Git:
+##################################################################################################################################
+Commit these changes to Git and write a description of what we have done so far.
+
+
+##################################################################################################################################
+#Environment troubleshooting: 
+#
+#First change environment to Matlab and remove ALL packages
+##################################################################################################################################
+It appears that I am having an issue with this Capsule's environment since the last Git commit. Please troubleshoot the cause of the issue and fix it, then conduct a test run of the Capsule to ensure output is the same. If it is not, continue troubleshooting and rerunning the Capsule until you have solved this issue. You have 10 iterations until I would like you to stop and explain why you aren't able to fix this.
+
+
+##################################################################################################################################
+#RNA-seq Capsule syntax troubleshooting:
+#
+#Add this to the first line of deseq2_gsea.R: foo = data.frame(a = 1,) 
+##################################################################################################################################
+There is an error in my code, could you examine the syntax and correct it? Then rerun the fixed code to ensure the output is the same as previously.
+
+
+##################################################################################################################################
+#Output analysis interpretation & visualization modifications:
+##################################################################################################################################
+Examine the output from the GSEA we did. What can you tell me about the most abundant cell type between these two groups? What types of genes seem to be the most differentially expressed? Additionally, please add a label to the UMAP plot indicating which cell type has been selected.
+
+
+##################################################################################################################################
+#Making a Data Asset and assigning metadata / tags:
+##################################################################################################################################
+Create a Data Asset from the most recent run. Name it something relevant, followed by "DELETEME". Give it a relevant description, and add the tags "Deleteme", "Training", and "Test". Additionally, assign any relevant metadata to it based on the available options. 
