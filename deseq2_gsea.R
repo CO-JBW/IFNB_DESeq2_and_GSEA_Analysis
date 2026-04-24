@@ -247,8 +247,8 @@ ranked_genes <- sort(ranked_genes, decreasing = TRUE)
 
 message(paste("Ranked genes for GSEA:", length(ranked_genes)))
 
-# Get MSigDB Hallmark gene sets (human)
-hallmark_sets <- msigdbr(species = "Homo sapiens", category = "H")
+# Get MSigDB Hallmark gene sets (human) from local file
+hallmark_sets <- readRDS("/code/hallmark_gene_sets.rds")
 hallmark_list <- split(hallmark_sets$gene_symbol, hallmark_sets$gs_name)
 
 message(paste("Hallmark gene sets:", length(hallmark_list)))
