@@ -143,7 +143,7 @@ Commit these changes to Git and write a description of what we have done so far.
 ##################################################################################################################################
 #Environment troubleshooting: 
 #
-#First change environment to Matlab and remove ALL packages
+#First change environment to Matlab and remove ALL packages, then run the Capsule
 ##################################################################################################################################
 It appears that I am having an issue with this Capsule's environment since the last Git commit. Please troubleshoot the cause of the issue and fix it, then conduct a test run of the Capsule to ensure output is the same. If it is not, continue troubleshooting and rerunning the Capsule until you have solved this issue. You have 10 iterations until I would like you to stop and explain why you aren't able to fix this.
 
