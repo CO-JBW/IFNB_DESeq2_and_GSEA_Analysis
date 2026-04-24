@@ -71,7 +71,7 @@ I have a script in the /code folder of this capsule. Please:
 7. Attach Data Assets:
 
 - Attach a Data Asset for this Capsule to process
-- Search using relevant tags (DESeq2, GSEA, pseudobulk, Seurat, IFNB)
+- Search using relevant tags (DESeq2, GSEA, pseudobulk, Seurat, IFNB, Aqua Training)
 - Analyze the R script to determine the input file name and ensure the Data Asset includes this file
 
 
