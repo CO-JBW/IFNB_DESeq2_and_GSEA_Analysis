@@ -37,7 +37,7 @@ I have a script in the /code folder of this capsule. Please:
 - Required programming language and all package dependencies
 - Key analysis libraries and tools
 
-2. Search for existing capsules with similar or identical analysis:
+2. Search for existing capsules with similar or identical analysis, prioritize released Capsules and those with the tag "Aqua Training":
 
 - Search using relevant tags (DESeq2, GSEA, pseudobulk, Seurat, IFNB)
 - Try multiple search queries to find the best match
