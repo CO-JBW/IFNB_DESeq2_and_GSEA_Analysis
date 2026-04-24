@@ -25,6 +25,7 @@ Find all assets on the server which have the tags "scRNA-seq" and "RNA-seq" or t
 
 
 ##################################################################################################################################
+#START A NEW AQUA SESSION
 #Create Capsule from script:
 #Copy the following GitHub repo: https://github.com/CO-JBW/IFNB_DESeq2_and_GSEA_Analysis
 #Move deseq2_gsea.R and hallmark_gene_sets.rds to the /code/ folder
