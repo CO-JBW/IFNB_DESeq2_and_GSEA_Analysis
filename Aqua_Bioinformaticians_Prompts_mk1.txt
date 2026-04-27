@@ -77,7 +77,7 @@ I have a script in the /code folder of this Capsule. Please:
 ###########################################################
 #Note:
 #If you do not have DESeq2, EnchancedVolcano, fgsea in the Bioconductor package manager for your Capsule, please run the following prompt:
-#Try to run the capsule and diagnose why it doesn't run properly. Download DESeq2, EnchancedVolcano, fgsea in a postInstall script and download using Docker. 
+#Try to run the capsule and diagnose why it doesn't run properly. Download DESeq2, EnchancedVolcano, fgsea in a postInstall script and download using Bioconductor. 
 ###########################################################
 
 
