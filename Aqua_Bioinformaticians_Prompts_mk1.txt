@@ -25,12 +25,11 @@ Find all assets on the server which have the tags "scRNA-seq" and "RNA-seq" or t
 
 
 ##################################################################################################################################
-#START A NEW AQUA SESSION
 #Create Capsule from script:
 #Copy the following GitHub repo: https://github.com/CO-JBW/IFNB_DESeq2_and_GSEA_Analysis
 #Move deseq2_gsea.R and hallmark_gene_sets.rds to the /code/ folder
 ##################################################################################################################################
-I have a script in the /code folder of this capsule. Please:
+I have a script in the /code folder of this Capsule. Please:
 
 1. Analyze the script to identify:
 
@@ -38,41 +37,48 @@ I have a script in the /code folder of this capsule. Please:
 - Required programming language and all package dependencies
 - Key analysis libraries and tools
 
-2. Search for existing capsules with similar or identical analysis, prioritize released Capsules and those with the tag "Aqua Training":
+2. Search for existing Capsules with similar or identical analysis, prioritize released Capsules and those with the tag "Aqua Training":
 
-- Search using relevant tags (DESeq2, GSEA, pseudobulk, Seurat, IFNB)
+- Search using relevant tags (DESeq2, GSEA, pseudobulk, Seurat, IFNB, Aqua Training)
 - Try multiple search queries to find the best match
-- Prioritize capsules with matching package combinations (e.g., Seurat, DESeq2, GSEA)
+- Prioritize Capsules with matching package combinations (e.g., Seurat, DESeq2, GSEA)
 
-3. Find the best matching capsule and retrieve its exact Dockerfile:
+3. Find the best matching Capsule and retrieve its exact Dockerfile:
 
-- Get the capsule ID of the best match
-- Use the editor tool to read /environment/Dockerfile from that capsule
+- Get the Capsule ID of the best match
+- Use the editor tool to read /environment/Dockerfile from that Capsule
 - This Dockerfile contains the exact base image and package installation commands
 
 4. Copy the Dockerfile exactly:
 
-- Do NOT use capsule_environment tool - copy the raw Dockerfile file directly
-- Use the editor tool to create /environment/Dockerfile in this capsule
+- Do NOT use Capsule_environment tool - copy the raw Dockerfile file directly
+- Use the editor tool to create /environment/Dockerfile in this Capsule
 - Copy the entire Dockerfile content verbatim (including hash, base image, all RUN commands, version pins)
 - Check to ensure the Dockerfile is an exact match for the Capsule you are copying from, If it is not, restart this step until it is
 - Your exit condition for step 4 is that you MUST have an identical dockerfile to the Capsule you have identified
 
 5. Match compute resources:
 
-- Get the compute configuration from the source capsule
-- Apply the same flex tier to this capsule using capsule_environment action="set_resources"
+- Get the compute configuration from the source Capsule
+- Apply the same flex tier to this Capsule using Capsule_environment action="set_resources"
 
-6. Set up the capsule:
+6. Set up the Capsule:
 
 - Create an appropriate /code/run script to execute the analysis
-- Update capsule metadata with descriptive name, description, and relevant tags based on the analysis
+- Update Capsule metadata with descriptive name, description, and relevant tags based on the analysis, do NOT tag this Capsule with "Aqua Training"
+- If this Capsule has the tag "Aqua Training" please remove it
 
 7. Attach Data Assets:
 
 - Attach a Data Asset for this Capsule to process
 - Search using relevant tags (DESeq2, GSEA, pseudobulk, Seurat, IFNB, Aqua Training)
 - Analyze the R script to determine the input file name and ensure the Data Asset includes this file
+
+###########################################################
+#Note:
+#If you do not have DESeq2, EnchancedVolcano, fgsea in the Bioconductor package manager for your Capsule, please run the following prompt:
+#Try to run the capsule and diagnose why it doesn't run properly. Download DESeq2, EnchancedVolcano, fgsea in a postInstall script and download using Docker. 
+###########################################################
 
 
 ##################################################################################################################################
@@ -84,7 +90,7 @@ Create a README.md file for this Capsule. Make sure that it covers everything th
 ##################################################################################################################################
 #Adding an App Panel:
 ##################################################################################################################################
-Generate an App Panel with a dropdown for selecting the cell type analyzed (it is currently the most abundant) and a text box for the padj significance threshold for differential expression. Code Ocean passes App panel parameters as ordered positional tokens ($1, $2…), not named flags — read them accordingly with sensible defaults. Adjust the code to accommodate this newly added app panel. Run the capsule with non-default values and confirm the correct values appear in the output log. If they do not appear in the output log, troubleshoot and rerun until they do.
+Generate an App Panel with a dropdown for selecting the cell type analyzed (it is currently the most abundant) and a text box for the padj significance threshold for differential expression. Code Ocean passes App panel parameters as ordered positional tokens ($1, $2…), not named flags — read them accordingly with sensible defaults. Adjust the code to accommodate this newly added app panel. Run the Capsule with non-default values and confirm the correct values appear in the output log. If they do not appear in the output log, troubleshoot and rerun until they do.
 
 
 ##################################################################################################################################
