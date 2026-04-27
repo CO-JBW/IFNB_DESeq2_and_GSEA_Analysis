@@ -7,7 +7,7 @@ Walk me through how to create a Capsule that preprocesses scRNA-seq data. Be spe
 ##################################################################################################################################
 #Code Ocean-specific Responses to Questions:
 ##################################################################################################################################
-Write and format an API call for me which lists all available Capsules on the platform. Do not execute this, I just want to see the code.
+Write and format an API call for me which lists all available Capsules on the platform using the Code Ocean SDK and API. Do not execute this, I just want to see the code.
 
 
 ##################################################################################################################################
