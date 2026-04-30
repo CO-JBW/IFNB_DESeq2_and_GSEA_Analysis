@@ -51,7 +51,7 @@ I have a script in the /code folder of this Capsule. Please:
 
 4. Copy the Dockerfile exactly:
 
-- Do NOT use Capsule_environment tool - copy the raw Dockerfile file directly
+- Do NOT use Capsule_environment tool - copy the raw Dockerfile file directly by copying the Capsule and using that to view the Dockerfile
 - Use the editor tool to create /environment/Dockerfile in this Capsule
 - Copy the entire Dockerfile content verbatim (including hash, base image, all RUN commands, version pins)
 - Check to ensure the Dockerfile is an exact match for the Capsule you are copying from, If it is not, restart this step until it is
